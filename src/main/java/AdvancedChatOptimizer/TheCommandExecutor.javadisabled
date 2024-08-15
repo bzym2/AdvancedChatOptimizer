@@ -1,0 +1,32 @@
+package AdvancedChatOptimizer;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.Bukkit;
+
+public class TheCommandExecutor implements CommandExecutor {
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (command.getName().equalsIgnoreCase("broadcast")) {
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
+                if (args.length == 0) {
+                    player.sendMessage("请提供需要广播的消息");
+                    return false;
+                }
+                String argument = args[0];
+                player.sendMessage("已向全部玩家广播消息：" + argument);
+                Bukkit.broadcastMessage(argument);
+                return true;
+            }else{
+                sender.sendMessage("此命令只能由玩家执行！");
+                return false;
+            }
+        }
+        return false;
+    }
+}
+

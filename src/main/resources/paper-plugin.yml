@@ -1,0 +1,4 @@
+name: AdvancedChatOptimizer
+version: '1.0-SNAPSHOT'
+main: AdvancedChatOptimizer.AdvancedChatOptimizer
+api-version: '1.20'
